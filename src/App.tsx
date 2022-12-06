@@ -1,11 +1,11 @@
+import { Home, Login, Create, Card } from "pages";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-import { Home, Login, Create, Card } from "./pages";
-import { logout } from "./store/action/login";
-import { selectors } from "./store/selectors";
+import { logout } from "store/action/login";
+import { selectors } from "store/selectors";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
