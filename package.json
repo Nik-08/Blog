@@ -48,19 +48,6 @@
       }
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
-  },
   "devDependencies": {
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
