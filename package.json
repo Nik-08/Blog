@@ -48,6 +48,14 @@
       }
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --write"
+  },
   "devDependencies": {
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
