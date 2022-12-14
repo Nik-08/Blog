@@ -1,7 +1,8 @@
 import { Typography } from '@mui/material';
-import { Container, Header } from 'components';
-import React from 'react';
+import Image from 'next/image';
+
 import development from '@assets/development.gif';
+import { Container, Header } from 'components';
 
 export default function Blog() {
   return (
@@ -15,10 +16,10 @@ export default function Blog() {
         >
           This page in progress
         </Typography>
-        <img
+        <Image
           src={development.src}
           style={{ maxWidth: '600px', width: '100%', display: 'block', margin: '20px auto 0' }}
-          alt="development"
+          alt=""
         />
       </Container>
     </div>

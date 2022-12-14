@@ -17,7 +17,6 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:react/jsx-runtime',
     'prettier',
-    'plugin:storybook/recommended',
   ],
   ignorePatterns: ['.eslintrc.js'],
   parser: '@typescript-eslint/parser',
@@ -56,19 +55,10 @@ module.exports = {
           '**/example/**',
           '*.js',
           '**/*.test.js',
-          '**/*.stories.*',
           '**/scripts/*.js',
-          '**/stories/**/*.js',
           '**/__tests__/**/*.js',
-          '**/.storybook/**/*.*',
         ],
         peerDependencies: true,
-      },
-    ],
-    'import/no-unresolved': [
-      'error',
-      {
-        ignore: ['@storybook'],
       },
     ],
     'import/order': [
