@@ -18,7 +18,7 @@ export default function Blog() {
         <img
           src={development.src}
           style={{ maxWidth: '600px', width: '100%', display: 'block', margin: '20px auto 0' }}
-          alt=""
+          alt="development"
         />
       </Container>
     </div>
