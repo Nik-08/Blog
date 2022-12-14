@@ -54,7 +54,12 @@
     }
   },
   "lint-staged": {
-    "*": "prettier --write"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@types/node": "18.11.9",
