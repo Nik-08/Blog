@@ -1,7 +1,8 @@
-import React from 'react';
+/* eslint-disable @next/next/no-img-element */
 import { Grid, Typography } from '@mui/material';
-import { Skill } from 'typings';
+
 import { urlFor } from 'sanity';
+import { Skill } from 'typings';
 
 interface Props {
   skills: Skill[];

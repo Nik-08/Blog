@@ -20,6 +20,8 @@ module.exports = {
   ],
   ignorePatterns: ['.eslintrc.js'],
   parser: '@typescript-eslint/parser',
+  plugins: ['import', 'react', '@typescript-eslint'],
+  root: true,
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -29,7 +31,6 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'import'],
   settings: {
     'import/resolver': {
       node: {
@@ -39,12 +40,22 @@ module.exports = {
     },
   },
   rules: {
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
+    'no-underscore-dangle': ['error', { allow: ['_id'] }],
     'react/function-component-definition': 'off',
     'import/no-extraneous-dependencies': [
       'error',
@@ -61,6 +72,7 @@ module.exports = {
         peerDependencies: true,
       },
     ],
+
     'import/order': [
       'error',
       {

@@ -1,9 +1,8 @@
-import React from 'react';
-import { Grid, Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
-import { Project } from 'typings';
-import { urlFor } from 'sanity';
-import { Box } from '@mui/system';
+import { Box, Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
+
+import { urlFor } from 'sanity';
+import { Project } from 'typings';
 
 interface Props {
   projects: Project[];
@@ -27,7 +26,7 @@ export const WorkCard = ({ projects }: Props) => {
                 <Typography gutterBottom variant="h5">
                   {project.title}
                 </Typography>
-                <Typography color={'grey'}>{project.technologies}</Typography>
+                <Typography color="grey">{project.technologies}</Typography>
               </CardContent>
             </CardActionArea>
             <Box display="flex" alignItems="center" flexWrap="wrap" padding="16px 16px 0">

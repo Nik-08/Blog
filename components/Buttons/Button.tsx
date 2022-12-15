@@ -1,4 +1,5 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
+
 import { Button as ButtonComponent, ButtonProps } from '@mui/material';
 
 interface Props extends ButtonProps {

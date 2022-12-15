@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Logo } from '../Logo';
-import { UserAvatar } from '../UserAvatar';
-import Link from 'next/link';
+
 import { AccountCircle, KeyboardArrowDown } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   IconButton,
   Typography,
@@ -13,9 +12,12 @@ import {
   MenuItem,
   Drawer,
 } from '@mui/material';
-import { Navigation } from '../Navigation';
+import Link from 'next/link';
+
 import { Container } from '../Container';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Logo } from '../Logo';
+import { Navigation } from '../Navigation';
+import { UserAvatar } from '../UserAvatar';
 
 const settings = [
   { name: 'Settings', id: 1, path: '/settings' },
@@ -90,7 +92,6 @@ export const Header = () => {
                       <MenuItem
                         onClick={handleCloseUserMenu}
                         key={page.id}
-                        // @ts-ignore
                         component={Link}
                         href={page.path}
                       >
@@ -147,7 +148,6 @@ export const Header = () => {
                           <MenuItem
                             onClick={handleCloseUserMenu}
                             key={page.id}
-                            // @ts-ignore
                             component={Link}
                             href={page.path}
                           >

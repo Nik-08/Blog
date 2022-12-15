@@ -1,11 +1,13 @@
 import { Box, Grid, Typography } from '@mui/material';
-import { Container, Footer, Header, Skills, WorkCard } from '../components';
-import mainLightImg from '@assets/mainImage_1.png';
-import Image from 'next/image';
 import { GetStaticProps } from 'next';
+import Image from 'next/image';
+
+import mainLightImg from '@assets/mainImage_1.png';
 import { Skill, Project } from 'typings';
-import { fetchSkills } from 'utils/fetchSkills';
 import { fetchProjects } from 'utils/fetchProjects';
+import { fetchSkills } from 'utils/fetchSkills';
+
+import { Container, Footer, Header, Skills, WorkCard } from '../components';
 
 interface Props {
   skills: Skill[];
@@ -43,7 +45,7 @@ const Home = ({ skills, projects }: Props) => {
             </Grid>
           </Grid>
           <Typography fontSize={30} mt={3} fontWeight={500} variant="h2">
-            Technologies I've worked with
+            Technologies I&apos;ve worked with
           </Typography>
           <Skills skills={skills} />
           <Typography fontSize={30} mt={5} fontWeight={500} variant="h2">

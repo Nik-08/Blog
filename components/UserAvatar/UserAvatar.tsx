@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+
 import Avatar from '@mui/material/Avatar';
 
 interface AvatarProps {
@@ -7,22 +8,15 @@ interface AvatarProps {
   color?: string;
 }
 
-export const UserAvatar: FC<AvatarProps> = ({ src, name, color }) => {
-  const stringAvatar = (name: string) => {
-    return {
-      sx: {
-        bgcolor: color,
-      },
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
+const stringAvatar = (name: string, color?: string) => {
+  return {
+    sx: {
+      bgcolor: color,
+    },
+    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
   };
-  if (src) {
-    console.log(src);
-  }
+};
 
-  return (
-    <>
-      <Avatar alt={name} {...stringAvatar(name)} src={src} />
-    </>
-  );
+export const UserAvatar: FC<AvatarProps> = ({ src, name, color }) => {
+  return <Avatar {...stringAvatar(name, color)} src={src} alt={name} />;
 };

@@ -1,7 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { groq } from 'next-sanity';
+
 import { Skill } from 'typings';
+
 import { sanityClient } from '../../sanity';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const query = groq`
 	*[_type == 'skills'] | order(title)
