@@ -30,7 +30,7 @@ export const WorkCard = ({ projects }: Props) => {
               </CardContent>
             </CardActionArea>
             <Box display="flex" alignItems="center" flexWrap="wrap" padding="16px 16px 0">
-              {project.linkToBuild ? (
+              {project.linkToGit ? (
                 <Link target="_blank" className="work__link" href={project.linkToGit}>
                   Look on github
                 </Link>
