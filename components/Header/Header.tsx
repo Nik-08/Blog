@@ -19,13 +19,9 @@ import { Logo } from '../Logo';
 import { Navigation } from '../Navigation';
 import { UserAvatar } from '../UserAvatar';
 
-const settings = [
-  { name: 'Settings', id: 1, path: '/settings' },
-  { name: 'Log out', id: 2, path: '/exit' },
-];
-
 export const Header = () => {
   const [open, setOpen] = useState(false);
+  const [login, setLogin] = useState<boolean>(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,7 +32,6 @@ export const Header = () => {
   };
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-  const login = false;
   const name = 'Nikita Galchenko';
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -88,16 +83,10 @@ export const Header = () => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    {settings.map((page) => (
-                      <MenuItem
-                        onClick={handleCloseUserMenu}
-                        key={page.id}
-                        component={Link}
-                        href={page.path}
-                      >
-                        {page.name}
-                      </MenuItem>
-                    ))}
+                    <MenuItem onClick={handleCloseUserMenu} component={Link} href="/settings">
+                      Settings
+                    </MenuItem>
+                    <MenuItem onClick={() => setLogin((prev) => !prev)}>Log out</MenuItem>
                   </Menu>
                 </Box>
               ) : (
@@ -109,58 +98,70 @@ export const Header = () => {
             <Box sx={{ display: { xs: 'flex', sm: 'none' }, alignItems: 'center' }}>
               <MenuIcon onClick={handleClickOpen} />
               <Drawer open={open} onClose={handleClose} anchor="right">
-                <Box sx={{}}>
-                  {login ? (
-                    <Box sx={{ flexGrow: 0, display: 'flex' }}>
-                      <Typography
-                        sx={{ mr: 1, color: 'inherit', display: 'flex', alignItems: 'center' }}
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  height="100%"
+                  justifyContent="space-between"
+                  padding="20px 10px"
+                  width="100%"
+                  minWidth="50vw"
+                >
+                  <Box display="flex" justifyContent="end">
+                    {login ? (
+                      <Box
+                        display="flex"
+                        justifySelf="end"
+                        flexDirection="column"
+                        sx={{ flexGrow: 0 }}
                       >
-                        {name}
-                      </Typography>
-                      <Box onClick={handleOpenUserMenu}>
-                        <IconButton color="inherit">
-                          <UserAvatar name={name} color="red" />
-                        </IconButton>
-                        <IconButton sx={{ p: 0 }}>
-                          <KeyboardArrowDown
-                            sx={{
-                              color: 'inherit',
-                            }}
-                          />
-                        </IconButton>
-                      </Box>
-                      <Menu
-                        sx={{ mt: '45px' }}
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                          vertical: 'top',
-                          horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                      >
-                        {settings.map((page) => (
-                          <MenuItem
-                            onClick={handleCloseUserMenu}
-                            key={page.id}
-                            component={Link}
-                            href={page.path}
+                        <Box display="flex">
+                          <Typography
+                            sx={{ mr: 1, color: 'inherit', display: 'flex', alignItems: 'center' }}
                           >
-                            {page.name}
+                            {name}
+                          </Typography>
+                          <Box onClick={handleOpenUserMenu}>
+                            <IconButton color="inherit">
+                              <UserAvatar name={name} color="red" />
+                            </IconButton>
+                            <IconButton sx={{ p: 0 }}>
+                              <KeyboardArrowDown
+                                sx={{
+                                  color: 'inherit',
+                                }}
+                              />
+                            </IconButton>
+                          </Box>
+                        </Box>
+                        <Menu
+                          sx={{ mt: '45px' }}
+                          anchorEl={anchorElUser}
+                          anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                          }}
+                          // keepMounted
+                          transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                          }}
+                          open={Boolean(anchorElUser)}
+                          onClose={handleCloseUserMenu}
+                        >
+                          <MenuItem onClick={handleCloseUserMenu} component={Link} href="/settings">
+                            Settings
                           </MenuItem>
-                        ))}
-                      </Menu>
-                    </Box>
-                  ) : (
-                    <IconButton color="inherit">
-                      <AccountCircle color="inherit" fontSize="large" />
-                    </IconButton>
-                  )}
+                          <MenuItem onClick={() => setLogin((prev) => !prev)}>Log out</MenuItem>
+                        </Menu>
+                      </Box>
+                    ) : (
+                      <IconButton color="inherit" sx={{ justifySelf: 'end' }}>
+                        <AccountCircle color="inherit" fontSize="large" />
+                      </IconButton>
+                    )}
+                  </Box>
+                  <Navigation mobile />
                 </Box>
               </Drawer>
             </Box>
